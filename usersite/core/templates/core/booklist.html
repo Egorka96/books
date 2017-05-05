@@ -4,6 +4,6 @@
 {% block container %}
     <h1>Наши книги</h1>
     {% for book in books %}
-        <p>{{ book.authot }} {{ book.title }} {{ book.pub_date }}</p>
+        <a href="/edit/{{ book.id }}">{{ book.author }} {{ book.title }} {{ book.pub_date }}</a><br>
     {% endfor %}
 {% endblock container %}

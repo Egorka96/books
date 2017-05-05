@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login
+from django.urls import reverse_lazy
 from django.views import generic
+
 
 from core.forms import RecordForm
 from django.contrib.auth.models import User
@@ -21,8 +23,12 @@ class BookList(LoginRequiredMixin, generic.ListView):
 book_list = BookList.as_view()
 
 
-# class BookList(PermissionRequiredMixin, generic.View):
-#     permission_required = 'core.can_open'
-#     template_name = 'core/index.html'
+class BookEdit(PermissionRequiredMixin, generic.UpdateView):
+    permission_required = 'core.book.can_change_book'
+    template_name = 'core/bookedit.html'
+    model = Book
+    fields = '__all__'
+    success_url = '/'
+edit = BookEdit.as_view()
 
 
