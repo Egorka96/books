@@ -1,0 +1,9 @@
+{% extends 'core/index.html' %}
+
+
+{% block container %}
+    <h1>Наши книги</h1>
+    {% for book in books %}
+        <p>{{ book.authot }} {{ book.title }} {{ book.pub_date }}</p>
+    {% endfor %}
+{% endblock container %}
