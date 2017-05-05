@@ -1,14 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
-from django.contrib.auth import authenticate, login
-from django.urls import reverse_lazy
 from django.views import generic
-
-
-from core.forms import RecordForm
-from django.contrib.auth.models import User
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
-
 from core.models import Book
 
 
