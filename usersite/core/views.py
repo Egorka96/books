@@ -15,7 +15,7 @@ book_list = BookList.as_view()
 
 
 class BookEdit(PermissionRequiredMixin, generic.UpdateView):
-    permission_required = 'core.book.can_change_book'
+    permission_required = 'core.change_book'
     template_name = 'core/bookedit.html'
     model = Book
     fields = '__all__'
